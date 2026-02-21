@@ -5,11 +5,13 @@ import { CampaignTemplate } from "@/types/templates";
 import { ArrowLeft, ArrowRight } from "@deemlol/next-icons";
 
 interface TemplateSelectorProps {
-  campaignTemplates: CampaignTemplate[];
-  onSelect: (template: CampaignTemplate) => void;
+    color:string;
+    campaignTemplates: CampaignTemplate[];
+    onSelect: (template: CampaignTemplate) => void;
 }
 
 export default function TemplateSelector({
+    color,
     campaignTemplates,
     onSelect
 }:TemplateSelectorProps) {
@@ -20,12 +22,13 @@ export default function TemplateSelector({
     : campaignTemplates.slice(0, 5);
 
     return <>
-        <div className="flex-wrap gap-3 grid-cols-5 flex justify-center">
+    
+        <div className="flex-wrap max-w-full gap-3 grid-cols-5 flex justify-center">
             {visibleTemplates.map((template) => (
             <button
                 key={template.id}
                 onClick={() => onSelect(template)}
-                className="inline-flex justify-center items-center rounded-md bg-blue-400/10 px-4 py-3 text-xs font-medium text-blue-400 inset-ring inset-ring-blue-400/30"
+                className={`inline-flex justify-center items-center rounded-md bg-${color}-400/10 px-4 py-3 text-xs font-medium text-${color}-400 inset-ring inset-ring-${color}-400/30`}
             >
                 {template.name}
             </button>
@@ -33,7 +36,7 @@ export default function TemplateSelector({
             {campaignTemplates.length > 5 && (
             <button
                 onClick={() => setShowAll(!showAll)}
-                className="inline-flex gap-2 justify-center items-center rounded-md bg-blue-400 px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-blue-400/30"
+                className={`inline-flex gap-2 justify-center items-center rounded-md bg-${color}-400 px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-${color}-400/30`}
             >
                 {showAll ? <><ArrowLeft size={12} /> Show Less</> : <><ArrowRight size={12} /> Show More</>}
                 
