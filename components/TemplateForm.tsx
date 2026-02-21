@@ -3,13 +3,15 @@ import { ChatIcon, WhatsappLogoIcon,  } from "@phosphor-icons/react";
 import { ChevronDown } from "@deemlol/next-icons";
 
 import { useState } from "react";
+import { platform } from "os";
 
 interface Props {
     type: "Whatsapp" | "SMS",
     // apiEndpoint: string;
     formValues: any;
     handleInputChange: React.Dispatch<React.SetStateAction<any>>;
-    // onResult: (message: string) => void;
+    setMessageStatus: React.Dispatch<React.SetStateAction<any>>;
+    onResult: (message: string) => void;
 }
 
 export default function TemplateForm({
@@ -17,9 +19,24 @@ export default function TemplateForm({
     //   apiEndpoint,
     formValues,
     handleInputChange,
-    //   onResult,
+    setMessageStatus,
+    onResult,
 }: Props) {
 
+    const submit = async() => {
+        setMessageStatus(1)
+        const res = await fetch("/api/gemini/template", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ platform: type, ...formValues}),
+        });
+        if(!res.ok) {
+            setMessageStatus(3)
+        } else {
+            const data = await res.json();
+            onResult(data.text)
+        }
+    }
 
     return <>
         <div className="form h-screen overflow-auto no-scrollbar">
@@ -170,7 +187,7 @@ export default function TemplateForm({
                             rows={3}
                             value={formValues.extra_information}
                             onChange={handleInputChange}
-                            className="block w-full rounded-md bg-transparent px-1 py-1.5 text-base text-white outline-0 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-0 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                            className="block w-full no-scrollbar rounded-md bg-transparent px-1 py-1.5 text-base text-white outline-0 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-0 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                             placeholder="Limited-time discounts on best-selling products. Offer valid for 24 hours only. No code required. Stocks are limited."
                             />
                         </div>
@@ -180,7 +197,7 @@ export default function TemplateForm({
             <div className="mt-8 px-5 grid grid-cols-1 gap-x-6 gap-y-8">
                 <div className="">
                     {
-                        type==="Whatsapp" ? <button className="inline-flex w-full justify-center gap-3 items-center rounded-md bg-green-400/10 px-4 py-3 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30"><WhatsappLogoIcon size={24}/> Generate Whatsapp Message</button> : <button className="inline-flex w-full justify-center gap-3 items-center rounded-md bg-white/75 px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-white/30"><ChatIcon size={24}/> Generate SMS</button>
+                        type==="Whatsapp" ? <button onClick={submit} className="inline-flex w-full justify-center gap-3 items-center rounded-md bg-green-400/10 px-4 py-3 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30"><WhatsappLogoIcon size={24}/> Generate Whatsapp Message</button> : <button onClick={submit} className="inline-flex w-full justify-center gap-3 items-center rounded-md bg-white/75 px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-white/30"><ChatIcon size={24}/> Generate SMS</button>
                     }
                 </div>
             </div>
