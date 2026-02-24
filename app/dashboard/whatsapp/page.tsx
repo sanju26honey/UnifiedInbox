@@ -66,7 +66,7 @@ export default function() {
                 </div>   
             </div>     
         </div>
-        <div className="grid min-h-screen gap-5 grid-cols-5">
+        <div className="grid min-h-screen md:overflow-hidden gap-5 grid-cols-5">
             <div className="md:col-span-1 md:order-1 order-2 col-span-5 border-r-2 border-white/10">
                 <TemplateForm showStatus={showStatus} setShowStatus={setShowStatus} setMessageStatus={setMessageStatus} type="Whatsapp" onResult={onResult} formValues={formValues} handleInputChange={handleInputChange}/>
             </div>
