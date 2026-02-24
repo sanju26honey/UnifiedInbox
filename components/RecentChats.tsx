@@ -35,7 +35,7 @@ export default function RecentChats( {userPlatform}:{userPlatform:string} ) {
             <span className="xl">No Messages</span>
         }
         { recents.map((message) => (
-            <div key={message.id} className="py-3">
+            <div key={message.id} className="py-3 bg-white/3 px-5 mb-3 p-3 rounded-md">
                 {
                     home &&
                     <span className="flex py-1.5">

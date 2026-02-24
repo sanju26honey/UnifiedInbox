@@ -1,5 +1,5 @@
 "use client"
-import { ChatIcon, WhatsappLogoIcon,  } from "@phosphor-icons/react";
+import { ArrowDownIcon, ArrowUpIcon, ChatIcon, WhatsappLogoIcon,  } from "@phosphor-icons/react";
 import { ChevronDown } from "@deemlol/next-icons";
 
 import { useState } from "react";
@@ -11,6 +11,8 @@ interface Props {
     formValues: any;
     handleInputChange: React.Dispatch<React.SetStateAction<any>>;
     setMessageStatus: React.Dispatch<React.SetStateAction<any>>;
+    setShowStatus: React.Dispatch<React.SetStateAction<any>>;
+    showStatus: boolean;
     onResult: (message: string) => void;
 }
 
@@ -20,6 +22,8 @@ export default function TemplateForm({
     formValues,
     handleInputChange,
     setMessageStatus,
+    setShowStatus,
+    showStatus,
     onResult,
 }: Props) {
 
@@ -39,7 +43,9 @@ export default function TemplateForm({
     }
 
     return <>
-        <div className="form h-screen overflow-auto no-scrollbar">
+        <p onClick={()=>setShowStatus(!showStatus)} className="md:hidden text-xl mt-5 flex items-center justify-center w-full text-center text-white/50">Or use the Campaign Settings {showStatus && <ArrowDownIcon/>} { !showStatus && <ArrowUpIcon/>}</p>
+        
+        <div className={`form md:h-screen overflow-auto no-scrollbar md:block ${showStatus?"hidden":"block"}`}>
             <div className="mt-10 px-5 grid grid-cols-1 gap-x-6 gap-y-8">
                 <div className="">
                     <label htmlFor="brand" className="block text-sm/6 font-medium text-white">
@@ -76,7 +82,7 @@ export default function TemplateForm({
                         >
                             <option value="Promotion">Promotion</option>
                             <option value="Event Invite">Event Invite</option>
-                            <option value="CTA for Abandoned Cart">CTA for Abandoned Cart</option>
+                            <option value="CTA For Abandoned Cart">CTA for Abandoned Cart</option>
                             <option value="Product Launch">Product Launch</option>
                             <option value="Newsletter Lunch">Newsletter Launch</option>
                         </select>

@@ -1,14 +1,22 @@
 import { CheckCircle, XCircle } from "@deemlol/next-icons";
-import { ChatIcon, HourglassHighIcon, WhatsappLogoIcon } from "@phosphor-icons/react";
+import { ChatIcon, CheckIcon, HourglassHighIcon, WhatsappLogoIcon, XCircleIcon, XIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 
 export default function MessageComposer( {type, message, onMessageChange}:{type: "Whatsapp" | "SMS", message:string, onMessageChange: (val: string) => void;} ) {
     const [to_ph, setTo_ph] = useState('');
     const isValidLength = to_ph.length >= 13;
     const isValidFormat = /^\+\s*\d{1,4}(\s*\d){10}$/.test(to_ph);
-    const showError = to_ph.length > 0 && (!isValidLength || !isValidFormat);
+    let showError = to_ph.length > 0 && (!isValidLength || !isValidFormat);
+    const [error, setError] = useState(false)
     const [status, setStatus] = useState(0)
+    const [toast, setToast] = useState(false)
     const sendMessage = async() => {
+        if(to_ph.length==0) {
+            setError(true)
+            return;
+        } else {
+            setError(false)
+        }
         setStatus(1)
         const res = await fetch("/api/send", {
             method: "POST",
@@ -20,6 +28,7 @@ export default function MessageComposer( {type, message, onMessageChange}:{type:
         } else {
             setStatus(2)
         }
+        setToast(true)
         const data = await res.json();
     }
     return <div>
@@ -47,7 +56,7 @@ export default function MessageComposer( {type, message, onMessageChange}:{type:
                     </div>
                 </div>
             </div>
-            {showError && (
+            {(showError || error) && (
                 <p className="text-red-500 overflow-auto text-xs mt-1">
                     Must include country code and 10 digit phone number
                 </p>
@@ -64,6 +73,28 @@ export default function MessageComposer( {type, message, onMessageChange}:{type:
                     placeholder="Limited-time discounts on best-selling products. Offer valid for 24 hours only. No code required. Stocks are limited."
                 />
             </div>
+            {
+                (toast && (status==2)) &&
+                <div id="toast-simple" className={`fixed text-black/80 rounded border-0 ${(status===2)?"bg-green-300 ":"bg-blue-400/30"} bottom-0 right-0 m-3 flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default`} role="alert">
+                    {/* <svg className="w-5 h-5 text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5"/></svg> */}
+                    <CheckIcon/>
+                    <div className="ms-2.5 text-sm border-s border-default ps-3.5">Message sent successfully.</div>
+                    <button type="button" onClick={() => setToast(false)} className="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none" data-dismiss-target="#toast-simple" aria-label="Close">
+                        <XIcon/>
+                    </button>
+                </div>
+            }
+            {
+                (toast && (status==3)) &&
+                <div id="toast-simple" className={`fixed text-black/80 rounded border-0 ${(status===3)?"bg-red-300 ":"bg-green-300"} bottom-0 right-0 m-3 flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default`} role="alert">
+                    {/* <svg className="w-5 h-5 text-fg-brand" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5"/></svg> */}
+                    <XCircleIcon size={24}/>
+                    <div className="ms-2.5 text-sm border-s border-default ps-3.5">Message not sent.</div>
+                    <button type="button" onClick={() => setToast(false)} className="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none" data-dismiss-target="#toast-simple" aria-label="Close">
+                        <XIcon/>
+                    </button>
+                </div>
+            }
             <div className="mt-4 grid-cols-1 gap-x-6 gap-y-8">
                 <div className="">
                     <button onClick={sendMessage} className={`inline-flex w-full justify-center gap-3 items-center rounded-md ${type==="Whatsapp"?"bg-green-400":"bg-white"} px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-green-400/30`}>

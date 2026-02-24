@@ -40,8 +40,8 @@ export default function QuickStart({
     }
 
     return <div>
-        <h1 className="text-4xl">Jump In </h1><br />
-        <p>Select a template below, use the sidebar, or type your own prompt to start generating.</p><br />
+        <h1 className="md:text-4xl text-3xl mt-10">Jump In </h1><br />
+        <p className="md:text-md text-sm">Select a template below, use the sidebar, or type your own prompt to start generating.</p><br />
         <TemplateSelector color={color} campaignTemplates={campaignTemplates} onSelect={applyTemplate}/>
         <br />
         <div className="mt-2">
@@ -51,10 +51,10 @@ export default function QuickStart({
                 name="prompt"
                 value={prompt}
                 onChange={(e)=>setPrompt(e.target.value)}
-                className="block w-full no-scrollbar rounded-md bg-transparent px-5 py-5 text-base text-white outline-0 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-0 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                className="block w-full no-scrollbar rounded-md bg-transparent md:px-5 md:py-5 p-2.5 text-base text-white outline-0 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-0 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 placeholder="Enter a prompt to get started. Include brand name and other relevant information."
                 />
-                <button onClick={submitPrompt} className={`h-full cursor-pointer p-5 m-0 bg-${color}-400 text-black`}>
+                <button onClick={submitPrompt} className={`h-full cursor-pointer md:p-5 p-2.5 m-0 bg-${color}-400 text-black`}>
                     <ArrowRight size={24}/>
                 </button>
             </div>

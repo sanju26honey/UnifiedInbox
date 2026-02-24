@@ -28,7 +28,7 @@ export default function TemplateSelector({
             <button
                 key={template.id}
                 onClick={() => onSelect(template)}
-                className={`inline-flex justify-center items-center rounded-md bg-${color}-400/10 px-4 py-3 text-xs font-medium text-${color}-400 inset-ring inset-ring-${color}-400/30`}
+                className={`inline-flex cursor-pointer justify-center items-center rounded-md bg-${color}-400/10 md:px-4 md:py-3 px-2 py-1.5 text-xs font-medium text-${color}-400 inset-ring inset-ring-${color}-400/30`}
             >
                 {template.name}
             </button>
@@ -36,7 +36,7 @@ export default function TemplateSelector({
             {campaignTemplates.length > 5 && (
             <button
                 onClick={() => setShowAll(!showAll)}
-                className={`inline-flex gap-2 justify-center items-center rounded-md bg-${color}-400 px-4 py-3 text-xs font-medium text-black inset-ring inset-ring-${color}-400/30`}
+                className={`cursor-pointer inline-flex gap-2 justify-center items-center rounded-md bg-${color}-400 md:px-4 md:py-3 px-2 py-1.5 text-xs font-medium text-black inset-ring inset-ring-${color}-400/30`}
             >
                 {showAll ? <><ArrowLeft size={12} /> Show Less</> : <><ArrowRight size={12} /> Show More</>}
                 
