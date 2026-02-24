@@ -6,6 +6,7 @@ import { WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 import Link from "next/link";
 import RecentChats from "@/components/RecentChats";
 import SignOut from "@/components/SignOut";
+import Footer from "@/components/Footer";
 
 export default async function Dashboard() {
     const session = await getServerSession(authOptions);

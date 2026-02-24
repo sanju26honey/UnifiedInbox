@@ -54,7 +54,7 @@ export default function QuickStart({
                 className="block w-full no-scrollbar rounded-md bg-transparent md:px-5 md:py-5 p-2.5 text-base text-white outline-0 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-0 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 placeholder="Enter a prompt to get started. Include brand name and other relevant information."
                 />
-                <button onClick={submitPrompt} className={`h-full cursor-pointer md:p-5 p-2.5 m-0 bg-${color}-400 text-black`}>
+                <button onClick={submitPrompt} className={`h-full cursor-pointer md:p-5 p-2.5 m-0 bg-blue-400 bg-${color}-400 text-black`}>
                     <ArrowRight size={24}/>
                 </button>
             </div>
