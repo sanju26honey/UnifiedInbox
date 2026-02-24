@@ -9,7 +9,7 @@ Live Demo: [https://unified-inbox-beta.vercel.app/](https://unified-inbox-beta.v
 Note: To test Whatsapp messaging using the Twilio sandbox, send ```join dozen-fellow``` to ```+14155238886``` through Whatsapp.
 
 ---
-## ✨ Highlights & Features
+## Highlights & Features
 
 * **AI-Powered Editor:** Generate professional message hooks and content based on your brand voice and campaign goals.
 * **Multi-Channel Support:** Toggle seamlessly between WhatsApp and SMS outreach.
@@ -19,7 +19,7 @@ Note: To test Whatsapp messaging using the Twilio sandbox, send ```join dozen-fe
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** [Next.js](https://nextjs.org/) (App Router), [Tailwind CSS](https://tailwindcss.com/)
 * **Authentication:** [NextAuth.js](https://next-auth.js.org/)
