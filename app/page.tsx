@@ -21,7 +21,7 @@ export default function Home() {
         backgroundImage: "radial-gradient(at 4% 69%, #070f2b 0%, transparent 60%), radial-gradient(at 17% 10%, #1b1a55 0%, transparent 50%), radial-gradient(at 74% 76%, rgba(5, 223, 114, 0.1) 0%, transparent 40%), radial-gradient(at 71% 94%, rgba(5, 223, 114, 0.2) 0%, transparent 30%)"
       }}>
           <div className="fixed z-100 top-0 p-5 text-left w-full">
-            <h1 className="text-2xl">Unified Inbox</h1>
+            <h1 className="text-2xl">UniBox</h1>
           </div>
           <div className="fixed md:top-0 z-100 w-full p-3 p-md-5 flex justify-end md:justify-center items-center">
             <div className="p-3 divide-x divide-white/30 shadow-sm shadow-white/30 inset-shadow-sm inset-shadow-white/30 gap-5 px-5 justify-evenly md:bg-white/10 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-4xl">
@@ -40,7 +40,7 @@ export default function Home() {
           <div className="w-full text-left grow md:w-[50%] p-5 px-10 md:order-1 order-2">
             <h1 className="md:text-3xl text-2xl text-white/80">Messaging, Reimagined with AI</h1><br />
             <span className="md:text-md text-sm text-white/50">
-              Traditional outreach is slow and fragmented. Our Unified Inbox eliminates the friction of multi-channel communication. By combining a powerful AI-driven editor with direct API integrations, we allow you to focus on the message, while we handle the delivery. Whether it's a 24-hour flash sale or a simple welcome drip, your workflow stays in one place.
+              Traditional outreach is slow and fragmented. UniBox eliminates the friction of multi-channel communication. By combining a powerful AI-driven editor with direct API integrations, we allow you to focus on the message, while we handle the delivery. Whether it's a 24-hour flash sale or a simple welcome drip, your workflow stays in one place.
             </span>
           </div>
           <div className="p-5 px-10 w-full md:w-[50%] md:order-2 order-1">
