@@ -19,10 +19,10 @@ export default function Footer() {
           </div>
           <div className="pb-5 px-10 w-full">
             <span className="text-md text-white">Navigation</span><br />
-            <a href={"#about"} className="text-white/60">About</a><br />
-            <a href={"#description"} className="text-white/60">Product Description</a><br />
-            <a href={"#features"} className="text-white/60">Features</a><br />
-            <a href={"#cta"} className="text-white/60">Get Started</a><br />
+            <a href={"/#about"} className="text-white/60">About</a><br />
+            <a href={"/#description"} className="text-white/60">Product Description</a><br />
+            <a href={"/#features"} className="text-white/60">Features</a><br />
+            <a href={"/#cta"} className="text-white/60">Get Started</a><br />
           </div>
         </div>
     </>
