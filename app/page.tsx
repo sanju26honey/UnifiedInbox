@@ -21,7 +21,7 @@ export default function Home() {
         backgroundImage: "radial-gradient(at 4% 69%, #070f2b 0%, transparent 60%), radial-gradient(at 17% 10%, #1b1a55 0%, transparent 50%), radial-gradient(at 74% 76%, rgba(5, 223, 114, 0.1) 0%, transparent 40%), radial-gradient(at 71% 94%, rgba(5, 223, 114, 0.2) 0%, transparent 30%)"
       }}>
           <div className="fixed z-100 top-0 p-5 text-left w-full">
-            <h1 className="text-2xl">UniBox</h1>
+            <h1 className="text-2xl text-white">UniBox</h1>
           </div>
           <div className="fixed md:top-0 z-100 w-full p-3 p-md-5 flex justify-end md:justify-center items-center">
             <div className="p-3 divide-x divide-white/30 shadow-sm shadow-white/30 inset-shadow-sm inset-shadow-white/30 gap-5 px-5 justify-evenly md:bg-white/10 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-4xl">
@@ -72,55 +72,55 @@ export default function Home() {
             <div className="grid gap-5 grid-cols-5 grid-rows-3">
               <div className="col-span-3 row-span-1 md:col-span-2 hover:shadow-xl shadow-blue-400/10 md:row-span-2 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <HeadCircuitIcon className="mx-auto text-5xl"/><br />
+                  <HeadCircuitIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Smart Generation</span>
                 </div>
               </div>
               <div className="col-span-2 md:col-span-1 hover:shadow-xl shadow-emerald-400/10 md:row-span-1 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <WhatsappLogoIcon className="mx-auto text-5xl"/><br />
+                  <WhatsappLogoIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Whatsapp Integration</span>
                 </div>
               </div>
               <div className="md:col-span-1 col-span-2 hover:shadow-xl shadow-blue-400/10 row-span-1 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20 rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <ChatIcon className="mx-auto text-5xl"/><br />
+                  <ChatIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">SMS Integration</span>
                 </div>
               </div>
               <div className="col-span-3 md:col-span-1 hover:shadow-xl shadow-emerald-400/10 row-span-2 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <TextboxIcon className="mx-auto text-5xl"/><br />
+                  <TextboxIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Prompt Inputs</span>
                 </div>
               </div>
               <div className="md:hidden col-span-2 hover:shadow-xl shadow-emerald-400/10 row-span-1 flex items-center justify-center text-center p-5 px-7  bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <CodesandboxLogoIcon className="mx-auto text-5xl"/><br />
+                  <CodesandboxLogoIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Pre Made Templates</span>
                 </div>
               </div>
               <div className="col-span-3 md:col-span-2 hover:shadow-xl shadow-blue-400/10 row-span-2 flex items-center justify-center text-center p-5 px-7  bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <HouseLineIcon className="mx-auto text-5xl"/><br />
+                  <HouseLineIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Unified Dashboard</span>
                 </div>
               </div>
               <div className="col-span-2 md:col-span-1 hover:shadow-xl shadow-emerald-400/10 row-span-1 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <ClockCounterClockwiseIcon className="mx-auto text-5xl"/><br />
+                  <ClockCounterClockwiseIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Recent Chats</span>
                 </div>
               </div>
               <div className="md:col-span-1 col-span-2 hover:shadow-xl shadow-emerald-400/10 row-span-1 flex items-center justify-center text-center p-5 px-7 bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <LayoutIcon className="mx-auto text-5xl"/><br />
+                  <LayoutIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Simple UI</span>
                 </div>
               </div>
               <div className="hidden md:col-span-1 col-span-2 hover:shadow-xl shadow-emerald-400/10 row-span-1 md:flex items-center justify-center text-center p-5 px-7  bg-gray-500/10 hover:bg-gray-500/20  rounded-xl bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100">
                 <div>
-                  <CodesandboxLogoIcon className="mx-auto text-5xl"/><br />
+                  <CodesandboxLogoIcon className="mx-auto text-white/70 text-5xl"/><br />
                   <span className="text-xl text-white/70">Pre Made Templates</span>
                 </div>
               </div>
